@@ -17,3 +17,8 @@ jobs:
                   cd capstone_project/hello-world/
                   npm install
                   npm test
+                  if [ $? -eq 0 ]; then
+                    echo "Previous command exited with status 0"
+                  else
+                    echo "Previous command did not exit with status 0"
+                  fi
