@@ -19,6 +19,9 @@ jobs:
                   npm test
                   if [ $? -eq 0 ]; then
                     echo "Previous command exited with status 0"
+                    sudo docker build -t hello-docker .
+                    sudo docker run -p 3000:3000 -d hello-docker
+                    sudo docker ps
                   else
                     echo "Previous command did not exit with status 0"
                   fi
