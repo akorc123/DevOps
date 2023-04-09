@@ -14,7 +14,6 @@ jobs:
                 uses: actions/checkout@v3
               - name: Step Two
                 run: |
-                  pwd
-                  ls
                   cd capstone_project/hello-world/
+                  npm install
                   npm test
