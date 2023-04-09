@@ -15,4 +15,6 @@ jobs:
               - name: Step Two
                 run: |
                   pwd
+                  ls
+                  cd capstone_project/hello-world/
                   npm test
