@@ -1,0 +1,27 @@
+name: My cool Workflow
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+ 
+jobs:
+    myfirstjob:
+              name: First job
+              runs-on: ubuntu-latest
+              steps:
+              - name: Step One
+                uses: actions/checkout@v3
+              - name: Step Two
+                run: |
+                  cd capstone_project/hello-world/
+                  npm install
+                  npm test
+                  if [ $? -eq 0 ]; then
+                    echo "Previous command exited with status 0"
+                    sudo docker build -t hello-docker .
+                    sudo docker run -p 3000:3000 -d hello-docker
+                    sudo docker ps
+                  else
+                    echo "Previous command did not exit with status 0"
+                  fi
